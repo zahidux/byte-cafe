@@ -14,7 +14,6 @@ const ChefRecipe = () => {
     email,
     recipes,
     best_recipe,
-    recipes_list,
   } = recipeData;
 
   return (

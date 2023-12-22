@@ -12,14 +12,14 @@ const Categories = () => {
     content = categories
       .slice(0, 3)
       .map((category) => (
-        <SingleCategory key={category.id} category={category}></SingleCategory>
+        <SingleCategory key={category._id} category={category}></SingleCategory>
       ));
   }
   if (moreItem) {
     content = categories
       .slice(0, 6)
       .map((category) => (
-        <SingleCategory key={category.id} category={category}></SingleCategory>
+        <SingleCategory key={category._id} category={category}></SingleCategory>
       ));
   }
 

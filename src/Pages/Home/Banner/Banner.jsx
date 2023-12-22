@@ -7,18 +7,26 @@ const Banner = () => {
       <div className="">
         <img className="w-full md:h-[750px] " src={bImg1} />
       </div>
-      <div className="container absolute top-[15%] md:top-[35%] left-48 md:left-[55%] text-white ">
+      <div className="container absolute top-[15%] md:top-[30%] md:left-[50%] text-white ">
         <p className="font-semibold text-xl ">Welcome To Tasty Salt</p>
         <h1 className=" text-3xl md:text-6xl font-extrabold md:mt-3 md:mb-5">
           Find Your Favorite <br /> Tasty Food
         </h1>
-        <p className="text-lg font-normal ">
-          Creative space for food where you will find healthy culinary
-          inspiration.
-        </p>
-        <button className="text-white bg-orange-600 text-xl md:text-2xl py-2 md:py-3 px-3 md:px-7 rounded-lg mt-2 md:mt-6 font-medium hover:bg-orange-500">
-          Discover More
-        </button>
+        <div className="invisible md:visible">
+          <p className="text-lg font-normal ">
+            Creative space for food where you will find healthy <br /> culinary
+            inspiration.
+          </p>
+        </div>
+
+        <div className="-mt-20 md:mt-0 ">
+          <button
+            className="text-white bg-orange-600 text-xl md:text-2xl py-2 md:py-3 px-3 md:px-7 rounded-lg 
+         md:mt-6 font-medium hover:bg-orange-500"
+          >
+            Discover More
+          </button>
+        </div>
       </div>
     </section>
   );

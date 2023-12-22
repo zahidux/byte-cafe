@@ -18,7 +18,7 @@ const auth = getAuth(app);
 export const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState([]); // see issue
+  const [user, setUser] = useState({});
   const [loading, setLoading] = useState(true);
 
   //google authentication
@@ -81,7 +81,7 @@ const AuthProvider = ({ children }) => {
 
   //update profile
 
-  const upDateProfile = (currentUser, name, photoLink) => {
+  const profileUpdate = (currentUser, name, photoLink) => {
     return updateProfile(currentUser, {
       displayName: name,
       photoURL: photoLink,
@@ -98,7 +98,7 @@ const AuthProvider = ({ children }) => {
     singIn,
     signUp,
     logOut,
-    upDateProfile,
+    profileUpdate,
   };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>

@@ -1,16 +1,20 @@
 import { createBrowserRouter } from "react-router-dom";
 import Home from "../Pages/Home/Home/Home";
 import Main from "../Layout/Main";
-import Blogs from "../Pages/Blogs/Blogs";
 import Login from "../Pages/Shared/Login/Login";
 import SignUp from "../Pages/Shared/SingUp/SignUp";
-import PageNotFound from "../Pages/Components/PageNotFound/PageNotFound";
-import ExpertChef from "../Pages/Home/ExpertiesChef/ExpertiesChef";
-import ChefRecipe from "../Pages/Home/ExpertiesChef/ChefRecipe";
 import Profile from "../Pages/Shared/Navbar/Profile";
-import PrivateRoute from "./PrivateRoute";
-import Offer from "../Pages/Offer/Offer";
+import PageNotFound from "../Pages/Components/PageNotFound/PageNotFound";
+import AddItem from "../Pages/Components/CreateNew/AddItem";
 import Chef from "../Pages/Chef's/Chef";
+import Offer from "../Pages/Offer/Offer";
+import Blogs from "../Pages/Blogs/Blogs";
+import ChefRecipe from "../Pages/Home/ExpertiesChef/ChefRecipe";
+import AllItems from "../Pages/Components/CreateNew/AllItems";
+import UpdateItem from "../Pages/Components/CreateNew/UpdateItem";
+import ByteMenu from "../Pages/ByteMenu/ByteMenu";
+import Dashboard from "../Pages/Dashboard/Dashboard";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -22,19 +26,9 @@ const router = createBrowserRouter([
         element: <Home />,
       },
 
-      //   {
-      //     path: '/all-chef',
-      //     element: <AllChef />,
-      //     loader: () => fetch('https://tasty-salt-server-foridislam332.vercel.app/chef')
-      // },
-      // {
-      //     path: '/chef/:id',
-      //     element: <PrivateRoute><ChefRecipes /></PrivateRoute>,
-      //     loader: ({ params }) => fetch(`https://tasty-salt-server-foridislam332.vercel.app/chef/${params.id}`)
-      // },
       {
-        path: "chefs",
-        element: <Chef />, // i loaded data by component file with fetch
+        path: "all-chef",
+        element: <Chef />,
       },
       {
         path: "chef/:id",
@@ -47,12 +41,25 @@ const router = createBrowserRouter([
           fetch(`http://localhost:5000/chef/${params.id}`),
       },
       {
-        path: "offer",
+        path: "recipes",
         element: <Offer />,
+      },
+
+      {
+        path: "menu",
+        element: <ByteMenu />,
       },
       {
         path: "blogs",
         element: <Blogs />,
+      },
+      {
+        path: "dashboard",
+        element: (
+          <PrivateRoute>
+            <Dashboard />
+          </PrivateRoute>
+        ),
       },
       {
         path: "login",
@@ -65,6 +72,22 @@ const router = createBrowserRouter([
       {
         path: "profile",
         element: <Profile />,
+      },
+      {
+        path: "addItems",
+        element: <AddItem />,
+      },
+      {
+        path: "allItems",
+        element: <AllItems />,
+        loader: () => fetch("http://localhost:5000/items"),
+      },
+
+      {
+        path: "update/:id",
+        element: <UpdateItem />,
+        loader: ({ params }) =>
+          fetch(`https://localhost:5000/items/${params.id}`),
       },
       {
         path: "*",

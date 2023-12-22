@@ -4,8 +4,8 @@ import google from "../../../assets/Google.png";
 import { FaGithub, FaTwitter } from "react-icons/fa6";
 import { FaFacebook } from "react-icons/fa";
 import { AuthContext } from "../../../Provider/AuthProvider";
-import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Spineer from "../../Components/Spinner/Spineer";
 
 const Login = () => {
   const { googleSignIn, githubSignIn, twitterSignIn, facebookSignIn, singIn } =
@@ -27,6 +27,7 @@ const Login = () => {
         // console.log(loggedUser);
         form.reset();
         navigate(from, { replace: true });
+        navigate("/");
       })
       .catch((error) => {
         alert(error.message, {
@@ -41,7 +42,7 @@ const Login = () => {
     googleSignIn()
       .then((result) => {
         const loggedUser = result.user;
-        console.log(loggedUser);
+        navigate("/");
       })
       .catch((error) => {
         console.log(error);
@@ -54,7 +55,7 @@ const Login = () => {
     githubSignIn()
       .then((result) => {
         const loggedUser = result.user;
-        console.log(loggedUser);
+        navigate("/");
       })
       .catch((error) => {
         console.log(error);

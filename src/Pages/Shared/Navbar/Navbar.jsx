@@ -1,63 +1,124 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+
+// icons
+import { MdClose } from "react-icons/md";
+import { FaBars } from "react-icons/fa";
+
 import logo from "../../../assets/logo.png";
 import ActiveLink from "./ActiveLink";
-import { Link } from "react-router-dom";
-import { AuthContext } from "../../../Provider/AuthProvider";
 import Profile from "./Profile";
-import { FaBars } from "react-icons/fa";
-import { IoMdClose } from "react-icons/io";
+import { AuthContext } from "../../../Provider/AuthProvider";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { user, logOut } = useContext(AuthContext);
 
-  const handelToggle = () => {
+  const toggleNavbar = () => {
     setIsOpen(!isOpen);
   };
 
+  const [navState, setNavState] = useState(false);
+
+  const onNavScroll = () => {
+    if (window.scrollY > 40) {
+      setNavState(true);
+    } else {
+      setNavState(false);
+    }
+  };
+  useEffect(() => {
+    window.addEventListener("scroll", onNavScroll);
+  }, []);
+
   return (
-    <header className=" bg-zinc-600 md:flex fixed z-10 bg-opacity-5 w-full justify-between items-center text-white pt-6 px-12 md:px-24">
-      <Link to={"/"}>
-        <img className="w-[200px] md:w-[300px] " src={logo} alt="byte-cafe" />
-      </Link>
-
-      {/* navbar toggle for small screen */}
-      <div className="my-4 flex justify-end -mt-8 text-3xl">
-        <button
-          onClick={handelToggle}
-          className="block md:hidden focus:outline-none "
-        >
-          {isOpen ? <IoMdClose /> : <FaBars />}
-        </button>
-      </div>
-
-      <ul
-        className={` gap-7 text-lg font-medium items-center ${
-          !isOpen ? "hidden md:flex" : "md:flex"
+    <header
+      className={`fixed w-full z-50 transition-all duration-200 ease-in-out ${
+        navState ? "bg-white shadow-lg" : "bg-[#00000070] text-white"
+      }`}
+    >
+      <nav
+        className={`py-2 relative transition-all duration-200 ease-in-out ${
+          navState ? "py-2" : "py-5"
         }`}
       >
-        <li>
-          <ActiveLink to={"/"}>Home</ActiveLink>
-        </li>
-        <li>
-          <ActiveLink to={"/chefs"}>Chef's</ActiveLink>
-        </li>
-        <li>
-          <ActiveLink to={"/offer"}>Today's Offer </ActiveLink>
-        </li>
-        <li>
-          <ActiveLink to={"/blogs"}>Blogs</ActiveLink>
-        </li>
-        <Link to={"login"}>
+        <div className="container px-4 md:px-8 lg:px-16 xl:px-20 mx-auto flex justify-between items-center">
+          {/* Navbar Logo */}
+          <Link to="/" className="text-3xl">
+            {navState ? (
+              <img className="w-52" src={logo} alt="tasty-salt" />
+            ) : (
+              <img className="w-52" src={logo} alt="tasty-salt" />
+            )}
+          </Link>
+
+          {/* Navbar Toggle Button for small screens */}
+          <button
+            className="block md:hidden text-secondary focus:outline-none text-3xl"
+            id="navbar-toggle"
+            onClick={toggleNavbar}
+          >
+            {isOpen ? <MdClose /> : <FaBars />}
+          </button>
+
+          {/* Navbar Links */}
+          <ul className="hidden md:flex gap-10 text-darkGray">
+            <ActiveLink to="/">Home</ActiveLink>
+            <ActiveLink to="/all-chef">Chef's</ActiveLink>
+            <ActiveLink to="/recipes">Recipes</ActiveLink>
+            <ActiveLink to="/menu">Menu</ActiveLink>
+            <ActiveLink to="/blogs">Blogs</ActiveLink>
+            <ActiveLink to="/dashboard">Dashboard</ActiveLink>
+          </ul>
+
           {user ? (
             <Profile user={user} logOut={logOut} />
           ) : (
-            <button className="bg-orange-500 mt-3 px-5  py-2 rounded-md text-xl font-semibold hover:bg-orange-400 ">
+            <Link to="/login" className="hidden md:block btn_regular">
               Login
-            </button>
+            </Link>
           )}
-        </Link>
-      </ul>
+
+          {/* mobile menu */}
+          <div
+            onClick={() => setIsOpen(false)}
+            className={`absolute md:hidden w-full h-screen top-0 left-0 bg-[#0000007b] transition-all duration-200 ease-in-out ${
+              isOpen ? "scale-100" : "scale-0"
+            }`}
+          ></div>
+          <ul
+            className={`flex md:hidden flex-col gap-5 absolute w-64 h-screen p-8 top-0 bg-dark transition-all duration-300 ease-in-out bg-primary text-white z-50 ${
+              isOpen ? "-left-4" : "-left-full"
+            }`}
+          >
+            <ActiveLink to="/">Home</ActiveLink>
+            <ActiveLink to="/all-chef">Chef's</ActiveLink>
+            <ActiveLink to="/recipes">Recipes</ActiveLink>
+            <ActiveLink to="/menu">Menu</ActiveLink>
+            <ActiveLink to="/blog">Blogs</ActiveLink>
+
+            <div>
+              {user?.photoURL ? (
+                <img
+                  className="h-14 w-14 rounded-full object-cover shadow-lg shadow-[#00000049]"
+                  src={user?.photoURL}
+                  alt="User avatar"
+                />
+              ) : (
+                <img
+                  className="h-14 w-14 rounded-full object-cover shadow-lg shadow-[#00000049]"
+                  src="https://i.pravatar.cc/300"
+                  alt="User avatar"
+                />
+              )}
+            </div>
+
+            <button onClick={() => logOut()} className="btn_regular logout">
+              LogOut
+            </button>
+          </ul>
+        </div>
+      </nav>
     </header>
   );
 };
