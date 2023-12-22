@@ -29362,7 +29362,9 @@ const sl = ll(_S),
           confirmButtonText: "Yes, delete it!",
         }).then((g) => {
           g.isConfirmed &&
-            fetch(`https://localhost:5000/items/${h}`, { method: "delete" })
+            fetch(`https://localhost:5000/items/${h}`, {
+              method: "delete",
+            })
               .then((y) => y.json())
               .then((y) => {
                 if ((console.log(y), y.modifiedCount > 0)) {

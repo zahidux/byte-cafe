@@ -18,7 +18,7 @@ const ChefRecipe = () => {
 
   return (
     <section className="  bg-slate-900  pt-24 md:pt-48 pb-8 md:px-48  ">
-      <div className=" px-4 md:px-8  ">
+      <div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 place-items-center mt-5 md:mt-0 text-white">
           <div>
             <h1 className="text-4xl font-bold drop-shadow-lg">{name}</h1>

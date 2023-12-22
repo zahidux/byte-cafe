@@ -6,7 +6,7 @@ import logo from "../../../assets/logo.png";
 const Footer = () => {
   return (
     <footer className="bg-[#222D3B]">
-      <div className="container px-4 md:px-8 mx-auto text-slate-300">
+      <div className="container px-4 md:px-8  text-slate-300">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 text-center items-center py-20 font-semibold">
           <div>
             <h1 className="text-3xl  mb-4 text-white">Subscribe</h1>

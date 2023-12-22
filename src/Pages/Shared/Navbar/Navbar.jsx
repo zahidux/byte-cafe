@@ -42,7 +42,7 @@ const Navbar = () => {
           navState ? "py-2" : "py-5"
         }`}
       >
-        <div className="container px-4 md:px-8 lg:px-16 xl:px-20 mx-auto flex justify-between items-center">
+        <div className="container px-4 md:px-8 mx-auto flex justify-between items-center">
           {/* Navbar Logo */}
           <Link to="/" className="text-3xl">
             {navState ? (

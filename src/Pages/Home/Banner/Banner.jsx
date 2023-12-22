@@ -3,12 +3,12 @@ import bImg1 from "../../../assets/images/b-1.jpg";
 
 const Banner = () => {
   return (
-    <section className="">
-      <div className="">
+    <section>
+      <div>
         <img className="w-full md:h-[750px] " src={bImg1} />
       </div>
-      <div className="container absolute top-[15%] md:top-[30%] md:left-[50%] text-white ">
-        <p className="font-semibold text-xl ">Welcome To Tasty Salt</p>
+      <div className="container absolute top-[15%] md:top-[30%] md:left-[150px] text-white ">
+        <p className="font-semibold text-xl ">Welcome To Byte Cafe</p>
         <h1 className=" text-3xl md:text-6xl font-extrabold md:mt-3 md:mb-5">
           Find Your Favorite <br /> Tasty Food
         </h1>

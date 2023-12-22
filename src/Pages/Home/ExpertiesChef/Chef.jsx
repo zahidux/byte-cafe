@@ -20,7 +20,7 @@ const Chef = ({ chef }) => {
   return (
     <section className="bg-slate-900 rounded-xl p-5 shadow-2xl">
       <div className=" rounded-xl">
-        <img src={image_url} alt="" />
+        <img src={image_url} alt="image" />
       </div>
       <div className="my-5">
         <h3 className="text-orange-500 text-2xl font-semibold my-5">{name}</h3>
