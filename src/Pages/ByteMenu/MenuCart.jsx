@@ -3,7 +3,7 @@ import React from "react";
 const MenuCart = ({ item }) => {
   const { image, name, recipe, price } = item;
   return (
-    <div className="flex mt-12">
+    <div className="flex mt-12 bg-slate-50 p-5 shadow-lg rounded-lg">
       <img className="w-28 rounded-tr-3xl rounded-bl-3xl" src={image} alt="" />
       <div className="ml-5 flex gap-12">
         <div className="">

@@ -5,10 +5,9 @@ import { FaGithub, FaTwitter } from "react-icons/fa6";
 import { FaFacebook } from "react-icons/fa";
 import { AuthContext } from "../../../Provider/AuthProvider";
 import "react-toastify/dist/ReactToastify.css";
-import Spineer from "../../Components/Spinner/Spineer";
 
 const Login = () => {
-  const { googleSignIn, githubSignIn, twitterSignIn, facebookSignIn, singIn } =
+  const { googleSignIn, githubSignIn, facebookSignIn, singIn } =
     useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
@@ -42,10 +41,24 @@ const Login = () => {
     googleSignIn()
       .then((result) => {
         const loggedUser = result.user;
-        navigate("/");
+        const saveUser = {
+          name: loggedUser.displayName,
+          email: loggedUser.email,
+        };
+        fetch("http://localhost:5000/users", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(saveUser),
+        })
+          .then((res) => res.json())
+          .then(() => {
+            navigate("/");
+          });
       })
       .catch((error) => {
-        console.log(error);
+        // console.log(error);
       });
   };
 
@@ -62,25 +75,12 @@ const Login = () => {
       });
   };
 
-  // twitter sign in
-
-  const handelTwitterSignIn = () => {
-    twitterSignIn()
-      .then((result) => {
-        const userLogged = result.user;
-        console.log(userLogged);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
-
   //
   const handelFacebookSignIn = () => {
     facebookSignIn();
   };
   return (
-    <section className=" flex flex-col items-center justify-center pt-64 pb-20 bg-slate-700">
+    <section className=" flex flex-col items-center justify-center py-10 bg-slate-700">
       <div className="container w-full md:w-[450px] bg-white p-8 rounded-lg shadow-2xl">
         <h2 className="text-3xl text-slate-800 font-bold text-center mb-5">
           Please Login
@@ -95,7 +95,7 @@ const Login = () => {
                 type="email"
                 required
                 placeholder="Email Address"
-                className="py-2 pl-2 rounded-lg outline-orange-400 w-full  "
+                className="py-2 pl-2 rounded-lg outline-orange-400 w-full bg-slate-100 "
               />
             </div>
             <div>
@@ -106,7 +106,7 @@ const Login = () => {
                 type="password"
                 required
                 placeholder="Password"
-                className="py-2 pl-2 rounded-lg outline-orange-400 w-full"
+                className="py-2 pl-2 rounded-lg outline-orange-400 w-full bg-slate-100"
               />
               <p>Forget password</p>
             </div>
@@ -114,7 +114,7 @@ const Login = () => {
           <div className="text-center ">
             <button
               type="submit"
-              className="mt-7 text-2xl bg-orange-400 py-3 rounded-lg w-full text-white font-semibold shadow-2xl hover:bg-orange-700"
+              className="mt-7 text-xl bg-orange-400 py-2 rounded-lg w-full text-white font-semibold shadow-2xl hover:bg-orange-700"
             >
               Login
             </button>
@@ -144,12 +144,6 @@ const Login = () => {
             className="flex  gap-1 shadow-xl rounded-lg p-3"
           >
             <FaFacebook className="text-2xl text-blue" /> Facebook
-          </button>
-          <button
-            onClick={handelTwitterSignIn}
-            className="flex  gap-1 shadow-xl rounded-lg p-3 "
-          >
-            <FaTwitter className="text-2xl text-blue" /> Twitter
           </button>
         </div>
         <p className="text-center mt-8 text-zinc-700">

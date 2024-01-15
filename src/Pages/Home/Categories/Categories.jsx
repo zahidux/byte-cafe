@@ -31,8 +31,8 @@ const Categories = () => {
   }, []);
 
   return (
-    <section className="mt-28">
-      <div className="text-center">
+    <section className="mt-16">
+      <div className="flex justify-center text-center">
         <SectionTitle
           subHeading={"-- All Category --"}
           Heading={"Choose a Category"}

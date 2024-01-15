@@ -4,7 +4,6 @@ import {
   FacebookAuthProvider,
   GithubAuthProvider,
   GoogleAuthProvider,
-  TwitterAuthProvider,
   createUserWithEmailAndPassword,
   getAuth,
   onAuthStateChanged,
@@ -34,13 +33,6 @@ const AuthProvider = ({ children }) => {
     const githubProvider = new GithubAuthProvider();
     setLoading(true);
     return signInWithPopup(auth, githubProvider);
-  };
-
-  // twitter authentication
-  const twitterSignIn = () => {
-    const twitterProvider = new TwitterAuthProvider();
-    setLoading(true);
-    return signInWithPopup(auth, twitterProvider);
   };
 
   //facebook authentication
@@ -81,10 +73,9 @@ const AuthProvider = ({ children }) => {
 
   //update profile
 
-  const profileUpdate = (currentUser, name, photoLink) => {
+  const profileUpdate = (currentUser, name) => {
     return updateProfile(currentUser, {
       displayName: name,
-      photoURL: photoLink,
     });
   };
 
@@ -93,7 +84,6 @@ const AuthProvider = ({ children }) => {
     loading,
     googleSignIn,
     githubSignIn,
-    twitterSignIn,
     facebookSignIn,
     singIn,
     signUp,

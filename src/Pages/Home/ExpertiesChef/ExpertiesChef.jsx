@@ -11,7 +11,7 @@ const ExpertChef = () => {
   }, []);
   return (
     <section className="my-12 ">
-      <div className="text-center">
+      <div className="flex justify-center text-center">
         <SectionTitle
           subHeading={"Team of Restaurant"}
           Heading={"Our Expertise Chef"}

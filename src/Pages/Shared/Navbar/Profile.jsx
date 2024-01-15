@@ -62,12 +62,13 @@ const Profile = () => {
           </p>
         )}
 
-        <button
+        <Link
+          to={"/"}
           className="w-full font-semibold text-orange-700  mt-3  text-xl"
           onClick={() => logOut()}
         >
           LogOut
-        </button>
+        </Link>
       </div>
     </div>
   );

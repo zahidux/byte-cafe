@@ -29,7 +29,7 @@ const Footer = () => {
 
           <div>
             <Link to="/" className="text-3xl font-semibold">
-              <img className="w-56 m-auto" src={logo} alt="tasty-salt" />
+              <img className="w-24 m-auto" src={logo} alt="tasty-salt" />
             </Link>
             <p className="text-white my-8">
               Be the first to know about new collections, going on at Our social

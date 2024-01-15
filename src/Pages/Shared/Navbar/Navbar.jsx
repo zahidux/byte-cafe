@@ -9,10 +9,13 @@ import logo from "../../../assets/logo.png";
 import ActiveLink from "./ActiveLink";
 import Profile from "./Profile";
 import { AuthContext } from "../../../Provider/AuthProvider";
+import { FaCartArrowDown } from "react-icons/fa";
+import UseCart from "../../../Hook/UseCart";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { user, logOut } = useContext(AuthContext);
+  const [cart] = UseCart();
 
   const toggleNavbar = () => {
     setIsOpen(!isOpen);
@@ -46,9 +49,9 @@ const Navbar = () => {
           {/* Navbar Logo */}
           <Link to="/" className="text-3xl">
             {navState ? (
-              <img className="w-52" src={logo} alt="tasty-salt" />
+              <img className="w-24" src={logo} alt="" />
             ) : (
-              <img className="w-52" src={logo} alt="tasty-salt" />
+              <img className="w-24" src={logo} alt="" />
             )}
           </Link>
 
@@ -65,10 +68,18 @@ const Navbar = () => {
           <ul className="hidden md:flex gap-10 text-darkGray">
             <ActiveLink to="/">Home</ActiveLink>
             <ActiveLink to="/all-chef">Chef's</ActiveLink>
-            <ActiveLink to="/recipes">Recipes</ActiveLink>
             <ActiveLink to="/menu">Menu</ActiveLink>
+            <ActiveLink to="/order/1">Order</ActiveLink>
             <ActiveLink to="/blogs">Blogs</ActiveLink>
             <ActiveLink to="/dashboard">Dashboard</ActiveLink>
+            <Link to={"/dashboard/cart"}>
+              <div className="flex items-center gap-2 px-2  rounded-xl bg-slate-700 text-white">
+                <div className="text-xl">
+                  <FaCartArrowDown />
+                </div>
+                <button className=" text-lg">{cart?.length || 0}</button>
+              </div>
+            </Link>
           </ul>
 
           {user ? (

@@ -1,34 +1,46 @@
-import React, { useEffect, useState } from "react";
-import MenuCart from "./MenuCart";
+import UseMenu from "../Components/UseMenu";
 import SectionTitle from "../Components/SectionTitle/SectionTitle";
+import MenuCategory from "./MenuCategory";
+import MenuCover from "./MenuCover";
 
-const ByteMenu = () => {
-  const [items, setItems] = useState([]);
+import menuImg from "../../assets/menu/menu.jpg";
+import dessertImg from "../../assets/menu/dessert.jpeg";
+import saladImg from "../../assets/menu/salad.jpg";
+import pizzaImg from "../../assets/menu/pizza.jpg";
+import soupImg from "../../assets/menu/soup.jpg";
 
-  useEffect(() => {
-    fetch("http://localhost:5000/menu")
-      .then((res) => res.json())
-      .then((data) => setItems(data))
-      .catch((error) => console.log(error));
-  }, []);
-
+const Menu = () => {
+  const [menu] = UseMenu();
+  const desserts = menu.filter((item) => item.category === "dessert");
+  const soup = menu.filter((item) => item.category === "soup");
+  const salad = menu.filter((item) => item.category === "salad");
+  const pizza = menu.filter((item) => item.category === "pizza");
+  const offered = menu.filter((item) => item.category === "offered");
   return (
-    <>
-      <section className="py-32 md:py-36">
-        <div className="text-center">
-          <SectionTitle
-            subHeading={"Sweet Food"}
-            Heading={"Byte Cafe Menu"}
-          ></SectionTitle>
-        </div>
-        <div className="container grid grid-cols-1 md:grid-cols-2 gap-x-16">
-          {items.map((item) => (
-            <MenuCart key={item._id} item={item} />
-          ))}
-        </div>
-      </section>
-    </>
+    <div className="container py-28">
+      <MenuCover img={menuImg} title="our menu" />
+      <div className="flex justify-center text-center mt-12">
+        <SectionTitle Heading="TODAY'S OFFER" subHeading={"---Don't miss---"} />
+      </div>
+      <MenuCategory items={offered}></MenuCategory>
+      <MenuCategory
+        items={desserts}
+        title="desserts"
+        image={dessertImg}
+      ></MenuCategory>
+      <MenuCategory items={soup} title={"soup"} image={soupImg}></MenuCategory>
+      <MenuCategory
+        items={salad}
+        title={"salad"}
+        image={saladImg}
+      ></MenuCategory>
+      <MenuCategory
+        items={pizza}
+        title={"pizza"}
+        image={pizzaImg}
+      ></MenuCategory>
+    </div>
   );
 };
 
-export default ByteMenu;
+export default Menu;

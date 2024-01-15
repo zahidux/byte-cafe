@@ -1,0 +1,1 @@
+Navigate("/", { state: { from: location } });

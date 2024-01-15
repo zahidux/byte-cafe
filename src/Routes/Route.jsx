@@ -5,16 +5,18 @@ import Login from "../Pages/Shared/Login/Login";
 import SignUp from "../Pages/Shared/SingUp/SignUp";
 import Profile from "../Pages/Shared/Navbar/Profile";
 import PageNotFound from "../Pages/Components/PageNotFound/PageNotFound";
-import AddItem from "../Pages/Components/CreateNew/AddItem";
 import Chef from "../Pages/Chef's/Chef";
-import Offer from "../Pages/Offer/Offer";
 import Blogs from "../Pages/Blogs/Blogs";
 import ChefRecipe from "../Pages/Home/ExpertiesChef/ChefRecipe";
-import AllItems from "../Pages/Components/CreateNew/AllItems";
-import UpdateItem from "../Pages/Components/CreateNew/UpdateItem";
+import UpdateItem from "../Pages/Dashboard/UpdateItem";
 import ByteMenu from "../Pages/ByteMenu/ByteMenu";
-import Dashboard from "../Pages/Dashboard/Dashboard";
 import PrivateRoute from "./PrivateRoute";
+import Order from "../Pages/Order/Order";
+import Dashboard from "../Pages/Dashboard/Dashboard";
+import AllItems from "../Pages/Dashboard/AllItems";
+import AddItem from "../Pages/Dashboard/AddItem";
+import MyCart from "../Pages/Dashboard/MyCart";
+import Users from "../Pages/Dashboard/Users";
 
 const router = createBrowserRouter([
   {
@@ -40,12 +42,6 @@ const router = createBrowserRouter([
         loader: ({ params }) =>
           fetch(`http://localhost:5000/chef/${params.id}`),
       },
-
-      {
-        path: "recipes",
-        element: <Offer />,
-      },
-
       {
         path: "menu",
         element: <ByteMenu />,
@@ -54,14 +50,7 @@ const router = createBrowserRouter([
         path: "blogs",
         element: <Blogs />,
       },
-      {
-        path: "dashboard",
-        element: (
-          <PrivateRoute>
-            <Dashboard />
-          </PrivateRoute>
-        ),
-      },
+
       {
         path: "login",
         element: <Login />,
@@ -74,14 +63,14 @@ const router = createBrowserRouter([
         path: "profile",
         element: <Profile />,
       },
+
       {
-        path: "addItems",
-        element: <AddItem />,
-      },
-      {
-        path: "allItems",
-        element: <AllItems />,
-        loader: () => fetch("http://localhost:5000/items"),
+        path: "order/:category",
+        element: (
+          <PrivateRoute>
+            <Order />
+          </PrivateRoute>
+        ),
       },
 
       {
@@ -93,6 +82,33 @@ const router = createBrowserRouter([
       {
         path: "*",
         element: <PageNotFound />,
+      },
+    ],
+  },
+  {
+    path: "dashboard",
+    element: (
+      <PrivateRoute>
+        <Dashboard />
+      </PrivateRoute>
+    ),
+    children: [
+      {
+        path: "addItems",
+        element: <AddItem />,
+      },
+      {
+        path: "allItems",
+        element: <AllItems />,
+        loader: () => fetch("http://localhost:5000/items"),
+      },
+      {
+        path: "cart",
+        element: <MyCart />,
+      },
+      {
+        path: "users",
+        element: <Users />,
       },
     ],
   },
