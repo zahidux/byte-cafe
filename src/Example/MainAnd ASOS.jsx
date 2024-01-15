@@ -1,18 +1,20 @@
 import React, { useEffect } from "react";
-import { Outlet, useLocation, useNavigation } from "react-router-dom";
-import Navbar from "../Pages/Shared/Navbar/Navbar";
-import Footer from "../Pages/Shared/Footer/Footer";
-import ScrollToTop from "../Pages/Components/ScrollToTop/ScrollToTop";
-import Aos from "aos";
+import { Outlet, useNavigation } from "react-router-dom";
+import Navbar from "../Shared/Navbar/Navbar";
+import Footer from "../Shared/Footer";
+import ScrollToTop from "../Components/ScrollToTop";
+
+import AOS from "aos";
+import "aos/dist/aos.css";
+import Spinner from "../Components/Spinner ";
 
 const Main = () => {
   const navigation = useNavigation();
   const location = useLocation();
-  const noHeaderFooter =
-    location.pathname.includes("login") || location.pathname.includes("signUp");
+  const noHeaderFooter = location.pathname.includes("login") || location.pathname.includes("signUp");
 
   useEffect(() => {
-    Aos.init({
+    AOS.init({
       duration: 1000, // Animation duration
       once: true, // Only animate once
     });
@@ -31,9 +33,14 @@ const Main = () => {
       <ScrollToTop />
       {noHeaderFooter || <Navbar />}
       <main>{content}</main>
-      {noHeaderFooter || <Footer />}
+      <Footer />
     </div>
   );
 };
 
 export default Main;
+
+
+// and use it on component that you want change
+
+data-aos="flip-left"
