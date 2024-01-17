@@ -23,11 +23,13 @@ const Order = () => {
   const drinks = menu.filter((item) => item.category === "drinks");
 
   return (
-    <div className="py-20">
+    <div className="py-20 container">
       <MenuCover img={orderImg} title="Order Food" />
       <Tabs defaultValue={tabIndex} onSelect={(index) => setTabIndex(index)}>
         <TabList
-          className={" my-12 text-xl font-semibold flex justify-center "}
+          className={
+            " mx-5 md:mx-0 my-12 text-xl font-semibold flex justify-center "
+          }
         >
           <Tab>Salad</Tab>
           <Tab>Pizza</Tab>

@@ -1,9 +1,11 @@
 import { useLoaderData } from "react-router";
 import Swal from "sweetalert2";
+import useAxiosSecure from "../../Hook/useAxiosSecure";
 
 const UpdateItem = () => {
+  const [axiosSecure] = useAxiosSecure();
   const item = useLoaderData();
-  const { _id, name, supplierName, price, photo } = item;
+  const { _id, name, supplierName, category, price, picture } = item;
 
   const handelForm = (event) => {
     // const [item, setItem] = useState([]);
@@ -15,29 +17,21 @@ const UpdateItem = () => {
     const price = from.price.value;
     const photo = from.photo.value;
     const items = { name, category, supplierName, price, photo };
-    // console.log(items);
+    console.log(items);
     from.reset();
 
     //send data to the server
-    fetch(`https://localhost:5000/items/${_id}`, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(items),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        if (data.insertedId) {
-          Swal.fire({
-            title: "Success!",
-            text: "Food Updated Successfully",
-            icon: "Success",
-            confirmButtonText: "Cool",
-          });
-        }
-      });
+    axiosSecure.put(`/items/${_id}`, items).then((res) => {
+      console.log(res.data);
+      if (res.data.modifiedCount) {
+        Swal.fire({
+          title: "Success!",
+          text: "Food Updated Successfully",
+          icon: "Success",
+          confirmButtonText: "Cool",
+        });
+      }
+    });
   };
 
   return (
@@ -77,6 +71,7 @@ const UpdateItem = () => {
                 type="text"
                 name="supplierName"
                 id="supplierName"
+                defaultValue={supplierName}
                 placeholder="Supplier"
               />
             </div>
@@ -86,6 +81,7 @@ const UpdateItem = () => {
                 className="w-full text-lg font-medium px-2 py-2 rounded-xl outline-orange-500 mt-4"
                 type="text"
                 name="price"
+                defaultValue={price}
                 id="price"
                 placeholder="$ 00"
               />
@@ -98,6 +94,7 @@ const UpdateItem = () => {
               type="url"
               name="photo"
               id="photo"
+              defaultValue={picture}
               placeholder="Photo"
             />
           </div>
@@ -106,7 +103,7 @@ const UpdateItem = () => {
               className="text-white  text-xl bg-orange-600 px-3 py-2 mt-12 rounded-lg font-semibold hover:bg-orange-700"
               type="submit"
             >
-              Add New
+              Update
             </button>
           </div>
         </form>

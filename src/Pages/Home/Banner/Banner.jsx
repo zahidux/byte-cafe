@@ -13,11 +13,13 @@ const Banner = () => {
         <div className="flex flex-row items-center">
           <img src={banner1} />
           <div
-            data-aos="flip-left"
-            className=" absolute text-white  text-left mt-10 mx-14 md:mx-36"
+            data-aos="fade-down-left"
+            className=" absolute text-white  text-left mt-10 mx-20 md:mx-36"
           >
-            <p className="font-semibold text-xl ">Welcome To Byte Cafe</p>
-            <h1 className=" text-3xl md:text-6xl font-extrabold md:my-5">
+            <p className="font-semibold text- md:text-xl ">
+              Welcome To Byte Cafe
+            </p>
+            <h1 className=" text-xl md:text-6xl font-extrabold md:my-5">
               Find Your Favorite <br /> Tasty Food
             </h1>
             <div className="invisible md:visible">
@@ -30,8 +32,8 @@ const Banner = () => {
             <div className="-mt-20 md:mt-0 ">
               <Link to={"/menu"}>
                 <button
-                  className="text-white  shadow-lg border-0 border-b-4 hover:shadow-orange-700 text-xl md:text-2xl py-2 md:py-2 px-3 md:px-4 rounded-xl 
-         md:mt-6 font-medium hover:bg-orange-500"
+                  className="text-white  shadow-lg border-0 border-b-4 hover:shadow-orange-700 text-sm md:text-xl py-2 md:py-2 px-2 md:px-3 rounded-xl 
+          md:mt-6 font-medium hover:bg-orange-500"
                 >
                   View Menu
                 </button>
@@ -42,11 +44,13 @@ const Banner = () => {
         <div className="flex flex-row-reverse items-center">
           <img src={banner2} />
           <div
-            data-aos="flip-left"
-            className=" absolute text-white  text-left mx-14 md:mx-24"
+            data-aos="fade-down-left"
+            className=" absolute text-white  text-left mt-10 mx-20 md:mx-36"
           >
-            <p className="font-semibold text-xl ">Welcome To Byte Cafe</p>
-            <h1 className=" text-3xl md:text-6xl font-extrabold md:my-5">
+            <p className="font-semibold text- md:text-xl ">
+              Welcome To Byte Cafe
+            </p>
+            <h1 className=" text-xl md:text-6xl font-extrabold md:my-5">
               Find Your Favorite <br /> Tasty Food
             </h1>
             <div className="invisible md:visible">
@@ -59,8 +63,8 @@ const Banner = () => {
             <div className="-mt-20 md:mt-0 ">
               <Link to={"/menu"}>
                 <button
-                  className="text-white  shadow-lg border-0 border-b-4 hover:shadow-orange-700 text-xl md:text-2xl py-2 md:py-2 px-3 md:px-4 rounded-xl 
-         md:mt-6 font-medium hover:bg-orange-500"
+                  className="text-white  shadow-lg border-0 border-b-4 hover:shadow-orange-700 text-sm md:text-xl py-2 md:py-2 px-2 md:px-3 rounded-xl 
+          md:mt-6 font-medium hover:bg-orange-500"
                 >
                   View Menu
                 </button>
@@ -71,11 +75,13 @@ const Banner = () => {
         <div className="flex flex-row-reverse items-center">
           <img src={banner3} />
           <div
-            data-aos="flip-left"
-            className=" absolute text-white  text-left mx-14 md:mx-24"
+            data-aos="fade-down-left"
+            className=" absolute text-white  text-left mt-10 mx-20 md:mx-36"
           >
-            <p className="font-semibold text-xl ">Welcome To Byte Cafe</p>
-            <h1 className=" text-3xl md:text-6xl font-extrabold md:my-5">
+            <p className="font-semibold text- md:text-xl ">
+              Welcome To Byte Cafe
+            </p>
+            <h1 className=" text-xl md:text-6xl font-extrabold md:my-5">
               Find Your Favorite <br /> Tasty Food
             </h1>
             <div className="invisible md:visible">
@@ -88,8 +94,8 @@ const Banner = () => {
             <div className="-mt-20 md:mt-0 ">
               <Link to={"/menu"}>
                 <button
-                  className="text-white  shadow-lg border-0 border-b-4 hover:shadow-orange-700 text-xl md:text-2xl py-2 md:py-2 px-3 md:px-4 rounded-xl 
-         md:mt-6 font-medium hover:bg-orange-500"
+                  className="text-white  shadow-lg border-0 border-b-4 hover:shadow-orange-700 text-sm md:text-xl py-2 md:py-2 px-2 md:px-3 rounded-xl 
+          md:mt-6 font-medium hover:bg-orange-500"
                 >
                   View Menu
                 </button>

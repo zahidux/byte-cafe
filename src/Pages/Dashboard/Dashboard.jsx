@@ -6,25 +6,28 @@ import { HiTemplate } from "react-icons/hi";
 import { FaHome } from "react-icons/fa";
 import { FaCartArrowDown } from "react-icons/fa";
 import UseCart from "../../Hook/UseCart";
+import useAdmin from "../../Hook/useAdmin";
 
 const Dashboard = () => {
   const [open, setOpen] = useState(true);
   const [cart] = UseCart();
 
-  const isAdmin = true;
+  // const isAdmin = true;
+  const [isAdmin] = useAdmin();
+  // console.log(isAdmin);
 
   return (
-    <div className="flex">
+    <div className="flex h-max">
       <div
         className={`${
-          open ? "w-36 md:w-72" : "w-20"
+          open ? "w-36 md:w-72 " : "w-20"
         } bg-slate-900 duration-700 h-screen relative`}
       >
         <SlArrowRight
           onClick={() => {
             setOpen(!open);
           }}
-          className={`absolute text-black cursor-pointer -right-3 top-10 rounded-full w-7 border-2 px-2 border-sky-600 bg-white text-2xl font-bold ${
+          className={` absolute text-black cursor-pointer -right-3 top-10 rounded-full w-7 border-2 px-2 border-sky-600 bg-white text-2xl font-bold ${
             open && "rotate-180"
           }`}
         />
@@ -32,7 +35,7 @@ const Dashboard = () => {
         <div className="text-white container py-10">
           {isAdmin ? (
             <>
-              <div>
+              <div className="">
                 <h2 className="text-yellow text-center font-bold text-xl my-8">
                   Admin
                 </h2>
@@ -58,7 +61,7 @@ const Dashboard = () => {
                     <HiTemplate />
                   </span>
                   <Link
-                    to={"/dashboard/allItems"}
+                    to={"/dashboard/newitems"}
                     className={`text-lg origin-left duration-500 ${
                       !open && "scale-0"
                     }`}

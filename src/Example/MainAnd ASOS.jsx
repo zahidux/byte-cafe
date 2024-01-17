@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Outlet, useNavigation } from "react-router-dom";
+import { Outlet, useLocation, useNavigation } from "react-router-dom";
 import Navbar from "../Shared/Navbar/Navbar";
 import Footer from "../Shared/Footer";
 import ScrollToTop from "../Components/ScrollToTop";
@@ -30,16 +30,18 @@ const Main = () => {
 
   return (
     <div>
-      <ScrollToTop />
+     <ScrollToTop />
       {noHeaderFooter || <Navbar />}
       <main>{content}</main>
-      <Footer />
+      {noHeaderFooter || <Footer />}
     </div>
   );
 };
 
 export default Main;
 
+// use it Main js
+import "aos/dist/aos.css";
 
 // and use it on component that you want change
 

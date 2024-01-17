@@ -17,7 +17,10 @@ const ChefRecipe = () => {
   } = recipeData;
 
   return (
-    <section className="  bg-slate-900  pt-24 md:pt-48 pb-8 md:px-48  ">
+    <section
+      data-aos="fade-up"
+      className="  bg-slate-900  pt-24 md:pt-48 pb-8 md:px-48  "
+    >
       <div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 place-items-center mt-5 md:mt-0 text-white">
           <div>

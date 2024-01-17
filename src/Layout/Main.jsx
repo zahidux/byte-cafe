@@ -4,6 +4,7 @@ import Navbar from "../Pages/Shared/Navbar/Navbar";
 import Footer from "../Pages/Shared/Footer/Footer";
 import ScrollToTop from "../Pages/Components/ScrollToTop/ScrollToTop";
 import Aos from "aos";
+import "aos/dist/aos.css";
 
 const Main = () => {
   const navigation = useNavigation();

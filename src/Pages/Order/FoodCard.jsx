@@ -39,12 +39,12 @@ const FoodCard = ({ item }) => {
       </p>
       <div>
         <div className="text-left">
-          <h3 className="text-xl font-semibold my-5">{name}</h3>
+          <h3 className="text-xl font-semibold my-2 md:my-3">{name}</h3>
           <p>{recipe}</p>
         </div>
-        <div onClick={() => handelAddToCart(item)} className="mt-14 ">
+        <div onClick={() => handelAddToCart(item)} className="mt-12 ">
           <button
-            className="shadow-lg border-0 absolute bottom-5 right-8 hover:text-white border-b-4 hover:shadow-orange-700 text-lg md:text-xl py-2 md:py-2 px-1 md:px-2 rounded-xl 
+            className="shadow-lg border-0 absolute bottom-5 right-8 hover:text-white border-b-4 hover:shadow-orange-700 text-base md:text-xl py-1 md:py-2 px-2 md:px-2 rounded-xl 
           font-medium hover:bg-orange-500 "
           >
             Add Cart

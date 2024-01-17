@@ -10,7 +10,7 @@ const ExpertChef = () => {
       .then((data) => setChefs(data));
   }, []);
   return (
-    <section className="my-12 ">
+    <section data-aos="fade-up" className="my-12 ">
       <div className="flex justify-center text-center">
         <SectionTitle
           subHeading={"Team of Restaurant"}

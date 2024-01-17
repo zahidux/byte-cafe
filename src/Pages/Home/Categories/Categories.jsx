@@ -38,7 +38,10 @@ const Categories = () => {
           Heading={"Choose a Category"}
         ></SectionTitle>
       </div>
-      <div className="container grid grid-cols-1 md:grid-cols-3 gap-6 mt-16">
+      <div
+        data-aos="fade-down"
+        className="container grid grid-cols-1 md:grid-cols-3 gap-6 mt-16"
+      >
         {content}
       </div>
       <div className="text-center text-xl ">

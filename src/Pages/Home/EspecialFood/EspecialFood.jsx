@@ -21,6 +21,7 @@ const EspecialFood = () => {
         <SectionTitle subHeading={"Choose Food"} Heading={"Favourite Food"} />
       </div>
       <Swiper
+        data-aos="fade-left"
         slidesPerView={4}
         spaceBetween={30}
         centeredSlides={true}
@@ -28,35 +29,35 @@ const EspecialFood = () => {
           clickable: true,
         }}
         modules={[Pagination]}
-        className="mySwiper"
+        className="mySwiper text-lg md:text-4xl"
       >
         <SwiperSlide>
-          <img className="rounded-lg" src={slide1} alt="" />
-          <h3 className=" uppercase text-4xl font-semibold text-center -mt-24 text-white">
+          <img className="rounded-lg " src={slide1} alt="" />
+          <h3 className="invisible md:visible uppercase  font-semibold text-center -mt-24 text-white">
             Salad
           </h3>
         </SwiperSlide>
         <SwiperSlide>
           <img className="rounded-lg" src={slide2} alt="" />
-          <h3 className="uppercase text-4xl font-semibold text-center -mt-24 text-white">
+          <h3 className="invisible md:visible uppercase  font-semibold text-center -mt-24 text-white">
             Pizzas
           </h3>
         </SwiperSlide>
         <SwiperSlide>
           <img className="rounded-lg" src={slide3} alt="" />
-          <h3 className="uppercase text-4xl font-semibold text-center -mt-24 text-white">
+          <h3 className="invisible md:visible uppercase font-semibold text-center -mt-24 text-white">
             Soups
           </h3>
         </SwiperSlide>
         <SwiperSlide>
           <img className="rounded-lg" src={slide4} alt="" />
-          <h3 className="uppercase text-4xl font-semibold text-center -mt-24 text-white">
+          <h3 className="invisible md:visible uppercase  font-semibold text-center -mt-24 text-white">
             Desserts
           </h3>
         </SwiperSlide>
         <SwiperSlide>
           <img className="rounded-lg" src={slide5} alt="" />
-          <h3 className="uppercase text-4xl font-semibold text-center -mt-24 text-white">
+          <h3 className="invisible md:visible uppercase  font-semibold text-center -mt-24 text-white">
             Salad
           </h3>
         </SwiperSlide>

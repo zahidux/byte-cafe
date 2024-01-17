@@ -11,11 +11,13 @@ import Profile from "./Profile";
 import { AuthContext } from "../../../Provider/AuthProvider";
 import { FaCartArrowDown } from "react-icons/fa";
 import UseCart from "../../../Hook/UseCart";
+import useAdmin from "../../../Hook/useAdmin";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { user, logOut } = useContext(AuthContext);
   const [cart] = UseCart();
+  const [isAdmin] = useAdmin();
 
   const toggleNavbar = () => {
     setIsOpen(!isOpen);
@@ -37,7 +39,7 @@ const Navbar = () => {
   return (
     <header
       className={`fixed w-full z-50 transition-all duration-200 ease-in-out ${
-        navState ? "bg-white shadow-lg" : "bg-[#00000070] text-white"
+        navState ? "bg-white shadow-lg" : "md:bg-[#00000070] text-white"
       }`}
     >
       <nav
@@ -49,9 +51,9 @@ const Navbar = () => {
           {/* Navbar Logo */}
           <Link to="/" className="text-3xl">
             {navState ? (
-              <img className="w-24" src={logo} alt="" />
+              <img className="w-14 md:w-24" src={logo} alt="" />
             ) : (
-              <img className="w-24" src={logo} alt="" />
+              <img className="w-14 md:w-24" src={logo} alt="" />
             )}
           </Link>
 
@@ -71,7 +73,11 @@ const Navbar = () => {
             <ActiveLink to="/menu">Menu</ActiveLink>
             <ActiveLink to="/order/1">Order</ActiveLink>
             <ActiveLink to="/blogs">Blogs</ActiveLink>
-            <ActiveLink to="/dashboard">Dashboard</ActiveLink>
+            {isAdmin ? (
+              <ActiveLink to="/dashboard/adminhome">Dashboard</ActiveLink>
+            ) : (
+              <ActiveLink to="/dashboard/userhome">Dashboard</ActiveLink>
+            )}
             <Link to={"/dashboard/cart"}>
               <div className="flex items-center gap-2 px-2  rounded-xl bg-slate-700 text-white">
                 <div className="text-xl">
@@ -104,9 +110,10 @@ const Navbar = () => {
           >
             <ActiveLink to="/">Home</ActiveLink>
             <ActiveLink to="/all-chef">Chef's</ActiveLink>
-            <ActiveLink to="/recipes">Recipes</ActiveLink>
             <ActiveLink to="/menu">Menu</ActiveLink>
-            <ActiveLink to="/blog">Blogs</ActiveLink>
+            <ActiveLink to="/order/1">Order</ActiveLink>
+            <ActiveLink to="/blogs">Blogs</ActiveLink>
+            <ActiveLink to="/dashboard">Dashboard</ActiveLink>
 
             <div>
               {user?.photoURL ? (

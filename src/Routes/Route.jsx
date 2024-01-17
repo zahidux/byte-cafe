@@ -13,10 +13,13 @@ import ByteMenu from "../Pages/ByteMenu/ByteMenu";
 import PrivateRoute from "./PrivateRoute";
 import Order from "../Pages/Order/Order";
 import Dashboard from "../Pages/Dashboard/Dashboard";
-import AllItems from "../Pages/Dashboard/AllItems";
 import AddItem from "../Pages/Dashboard/AddItem";
 import MyCart from "../Pages/Dashboard/MyCart";
 import UserCart from "../Pages/Dashboard/UserCart";
+import NewItems from "../Pages/Dashboard/newItems";
+import Pay from "../Pages/Dashboard/Pay";
+import UserHome from "../Pages/Dashboard/UserHome";
+import AdminHome from "../Pages/Dashboard/AdminHome";
 
 const router = createBrowserRouter([
   {
@@ -74,10 +77,10 @@ const router = createBrowserRouter([
       },
 
       {
-        path: "update/:id",
+        path: "/update/:id",
         element: <UpdateItem />,
         loader: ({ params }) =>
-          fetch(`https://localhost:5000/items/${params.id}`),
+          fetch(`http://localhost:5000/items/${params.id}`),
       },
       {
         path: "*",
@@ -94,18 +97,33 @@ const router = createBrowserRouter([
     ),
     children: [
       {
-        path: "addItems",
-        element: <AddItem />,
+        path: "userhome",
+        element: <UserHome />,
       },
-      {
-        path: "allItems",
-        element: <AllItems />,
-        loader: () => fetch("http://localhost:5000/items"),
-      },
+
       {
         path: "cart",
         element: <MyCart />,
       },
+      {
+        path: "pay",
+        element: <Pay />,
+      },
+
+      //admin route
+      {
+        path: "adminhome",
+        element: <AdminHome />,
+      },
+      {
+        path: "addItems",
+        element: <AddItem />,
+      },
+      {
+        path: "newitems",
+        element: <NewItems />,
+      },
+
       {
         path: "users",
         element: <UserCart />,

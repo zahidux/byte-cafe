@@ -1,9 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
+import useAxiosSecure from "../../Hook/useAxiosSecure";
 
-const ItemsCart = ({ item, allItems, setAllItems }) => {
+const ItemsCart = ({ item, refetch }) => {
   const { _id, name, supplierName, price, photo } = item;
+  const [axiosSecure] = useAxiosSecure();
 
   const handelDelete = (item) => {
     Swal.fire({
@@ -16,22 +18,17 @@ const ItemsCart = ({ item, allItems, setAllItems }) => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`https://localhost:5000/items/${item._id}`, {
-          method: "delete",
-        })
-          .then((res) => res.json())
-          .then((data) => {
-            console.log(data);
-            if (data.modifiedCount > 0) {
-              Swal.fire({
-                title: "Deleted!",
-                text: "Your file has been deleted.",
-                icon: "success",
-              });
-              const remaining = allItems.filter((items) => items._id !== _id);
-              setAllItems(remaining);
-            }
-          });
+        axiosSecure.delete(`/items/${item._id}`).then((res) => {
+          console.log(res.data);
+          if (res.data.modifiedCount > 0) {
+            refetch();
+            Swal.fire({
+              title: "Deleted!",
+              text: "Your file has been deleted.",
+              icon: "success",
+            });
+          }
+        });
       }
     });
   };
@@ -49,7 +46,7 @@ const ItemsCart = ({ item, allItems, setAllItems }) => {
       </div>
       <div className="grid gap-3 text-white">
         <p className=" bg-[#D2B48C] text-lg px-2 rounded-lg ">View</p>
-        <Link to={`update/${_id}`}>
+        <Link to={`/update/${_id}`}>
           <button className=" bg-[#3C393B] text-lg px-2 rounded-lg">
             Edit
           </button>

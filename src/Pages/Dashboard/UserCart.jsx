@@ -5,7 +5,8 @@ import { MdDelete } from "react-icons/md";
 import Swal from "sweetalert2";
 
 const UserCart = () => {
-  const [users, refetch] = Users();
+  const [userData, , refetch] = Users();
+  console.log(userData);
 
   const handelMakeAdmin = (user) => {
     fetch(`http://localhost:5000/users/admin/${user._id}`, {
@@ -50,7 +51,7 @@ const UserCart = () => {
           </tr>
         </thead>
         <tbody>
-          {users.map((user, index) => (
+          {userData.map((user, index) => (
             <tr key={user._id} className="bg-slate-700 text-white text-lg">
               <td className="px-6 py-4 ">{index + 1}</td>
               <td className="px-6 py-4 ">{user.name}</td>
