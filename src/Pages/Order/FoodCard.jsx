@@ -13,7 +13,7 @@ const FoodCard = ({ item }) => {
     if (user && user.email) {
       const cartItem = { menuItemId: _id, name, price, email: user.email };
 
-      fetch("https://byte-cafe.onrender.com/carts", {
+      fetch("http://localhost:5000/carts", {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify(cartItem),
@@ -32,7 +32,7 @@ const FoodCard = ({ item }) => {
     }
   };
   return (
-    <div className="relative rounded-xl p-5 shadow-2xl">
+    <div data-aos="fade-up" className="relative rounded-xl p-5 shadow-2xl">
       <img className="rounded-xl" src={image} alt="" />
       <p className="bg-slate-700 absolute text-white top-8 right-8 p-1 rounded-md">
         ${price}

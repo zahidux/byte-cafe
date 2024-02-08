@@ -18,7 +18,10 @@ const Chef = ({ chef }) => {
   } = chef;
   UseTitle("Chef's");
   return (
-    <section className="bg-slate-900 rounded-xl p-5 shadow-2xl">
+    <section
+      data-aos="fade-up"
+      className="bg-slate-900 rounded-xl p-5 shadow-2xl"
+    >
       <div className=" rounded-xl">
         <img className="w-[450px]" src={image_url} alt="image" />
       </div>

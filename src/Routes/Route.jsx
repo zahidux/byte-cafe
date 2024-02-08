@@ -8,7 +8,6 @@ import PageNotFound from "../Pages/Components/PageNotFound/PageNotFound";
 import Chef from "../Pages/Chef's/Chef";
 import Blogs from "../Pages/Blogs/Blogs";
 import ChefRecipe from "../Pages/Home/ExpertiesChef/ChefRecipe";
-import UpdateItem from "../Pages/Dashboard/UpdateItem";
 import ByteMenu from "../Pages/ByteMenu/ByteMenu";
 import PrivateRoute from "./PrivateRoute";
 import Order from "../Pages/Order/Order";
@@ -20,6 +19,7 @@ import NewItems from "../Pages/Dashboard/newItems";
 import Pay from "../Pages/Dashboard/Pay";
 import UserHome from "../Pages/Dashboard/UserHome";
 import AdminHome from "../Pages/Dashboard/AdminHome";
+import UpdateItem from "../Pages/Dashboard/UpdateItem";
 
 const router = createBrowserRouter([
   {
@@ -43,7 +43,7 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`https://byte-cafe.onrender.com/chef/${params.id}`),
+          fetch(`http://localhost:5000/chef/${params.id}`),
       },
       {
         path: "menu",
@@ -80,7 +80,7 @@ const router = createBrowserRouter([
         path: "/update/:id",
         element: <UpdateItem />,
         loader: ({ params }) =>
-          fetch(`https://byte-cafe.onrender.com/items/${params.id}`),
+          fetch(`http://localhost:5000/items/${params.id}`),
       },
       {
         path: "*",

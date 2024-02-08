@@ -38,6 +38,7 @@ const Navbar = () => {
 
   return (
     <header
+      data-aos="fade-down"
       className={`fixed w-full z-50 transition-all duration-200 ease-in-out ${
         navState ? "bg-white shadow-lg" : "md:bg-[#00000070] text-white"
       }`}

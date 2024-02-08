@@ -24,7 +24,7 @@ const Categories = () => {
   }
 
   useEffect(() => {
-    fetch("https://byte-cafe.onrender.com/categories")
+    fetch("http://localhost:5000/categories")
       .then((res) => res.json())
       .then((data) => setCategories(data))
       .catch((error) => console.log(error));
@@ -32,19 +32,20 @@ const Categories = () => {
 
   return (
     <section className="mt-16">
-      <div className="flex justify-center text-center">
+      <div data-aos="zoom-in-up" className="flex justify-center text-center">
         <SectionTitle
           subHeading={"-- All Category --"}
           Heading={"Choose a Category"}
         ></SectionTitle>
       </div>
       <div
-        data-aos="fade-down"
+        data-aos="fade-up"
+        data-aos-anchor-placement="center-bottom"
         className="container grid grid-cols-1 md:grid-cols-3 gap-6 mt-16"
       >
         {content}
       </div>
-      <div className="text-center text-xl ">
+      <div data-aos="zoom-in-up" className="text-center text-xl ">
         {!moreItem ? (
           <button
             onClick={() => {

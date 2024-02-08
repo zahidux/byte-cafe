@@ -4,7 +4,7 @@ import MenuCart from "./MenuCart";
 
 const MenuCategory = ({ items, title, image }) => {
   return (
-    <div>
+    <div data-aos="fade-up">
       {title && <MenuCover img={image} title={title} />}
       <div className="grid md:grid-cols-2 gap-4 my-16">
         {items.map((item) => (

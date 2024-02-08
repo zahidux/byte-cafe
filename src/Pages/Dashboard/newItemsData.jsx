@@ -8,7 +8,7 @@ const newItemsData = () => {
   } = useQuery({
     queryKey: ["items"],
     queryFn: async () => {
-      const res = await fetch("https://byte-cafe.onrender.com/items");
+      const res = await fetch("http://localhost:5000/items");
       console.log(res);
       return res.json();
     },

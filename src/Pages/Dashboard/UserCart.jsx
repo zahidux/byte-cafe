@@ -9,7 +9,7 @@ const UserCart = () => {
   console.log(userData);
 
   const handelMakeAdmin = (user) => {
-    fetch(`https://byte-cafe.onrender.com/users/admin/${user._id}`, {
+    fetch(`http://localhost:5000/users/admin/${user._id}`, {
       method: "PATCH",
     })
       .then((res) => res.json())

@@ -12,16 +12,21 @@ const Testimonials = () => {
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
-    fetch("https://byte-cafe.onrender.com/review")
+    fetch("http://localhost:5000/review")
       .then((res) => res.json())
       .then((data) => setReviews(data));
   }, []);
   return (
     <div className="container my-20">
-      <div className="flex justify-center mb-8">
+      <div data-aos="fade-down" className="flex justify-center mb-8">
         <SectionTitle Heading={"Customer Feedback"}></SectionTitle>
       </div>
-      <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
+      <Swiper
+        data-aos="zoom-in-up"
+        navigation={true}
+        modules={[Navigation]}
+        className="mySwiper"
+      >
         {reviews.map((review) => (
           <SwiperSlide key={review._id}>
             <div className="flex flex-col items-center m-12 md:m-24 md:mx-24 my-16">

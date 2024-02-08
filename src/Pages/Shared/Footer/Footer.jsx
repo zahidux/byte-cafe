@@ -8,14 +8,17 @@ const Footer = () => {
     <footer className="bg-[#222D3B]">
       <div className="container px-4 md:px-8  text-slate-300">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 text-center items-center py-20 font-semibold">
-          <div>
+          <div data-aos="fade-right">
             <h1 className="text-xl md:text-3xl  mb-4 text-white">Subscribe</h1>
             <p className="text-white text-xs md:text-base mb-5">
               Register and get notified about all the news & updates before it
               gets too late.
             </p>
 
-            <div className="flex box-border w-full font-semibold">
+            <div
+              data-aos="fade-right"
+              className="flex box-border w-full font-semibold"
+            >
               <input
                 className="pl-4 w-full py-2 text-sm md:text-base outline-orange-400"
                 type="text"
@@ -27,7 +30,7 @@ const Footer = () => {
             </div>
           </div>
 
-          <div>
+          <div data-aos="fade-down">
             <Link to="/" className="text-3xl font-semibold">
               <img className="w-24 m-auto" src={logo} alt="tasty-salt" />
             </Link>
@@ -52,7 +55,7 @@ const Footer = () => {
             </div>
           </div>
 
-          <div>
+          <div data-aos="fade-left">
             <h1 className="text-xl md:text-3xl font-semibold mb-4 ">
               Contact Us
             </h1>

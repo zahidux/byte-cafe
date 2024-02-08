@@ -3,7 +3,10 @@ import React from "react";
 const SingleCategory = ({ category }) => {
   const { id, title, image, description } = category;
   return (
-    <section className="text-center shadow-xl p-4 rounded-lg bg-slate-50">
+    <section
+      data-aos="fade-up"
+      className="text-center shadow-xl p-4 rounded-lg bg-slate-50"
+    >
       <div className="p-4 ">
         <img className="w-full rounded-xl h-[200px]" src={image} alt="image" />
       </div>

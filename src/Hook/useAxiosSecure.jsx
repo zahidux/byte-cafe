@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 
 const axiosSecure = axios.create({
-  baseURL: "https://byte-cafe.onrender.com",
+  baseURL: "http://localhost:5000",
 });
 
 const useAxiosSecure = () => {
@@ -46,7 +46,7 @@ export default useAxiosSecure;
 // import { AuthContext } from "../Provider/AuthProvider";
 
 // const axiosSecure = axios.create({
-//   baseURL: "https://byte-cafe.onrender.com",
+//   baseURL: "http://localhost:5000",
 // });
 // const useAxiosSecure = () => {
 //   const navigate = useNavigate();

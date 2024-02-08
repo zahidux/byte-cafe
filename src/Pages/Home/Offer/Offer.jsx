@@ -10,12 +10,13 @@ const Offer = () => {
         <div className="mx-12 ms:mx-24  md:flex  items-center gap-5 md:gap-24 pt-12  rounded-2xl md:p-28  text-white font-bold">
           <div>
             <img
+              data-aos="fade-down-right"
               className="rounded-2xl w-full md:h-[500px]  "
               src={offer}
               alt=""
             />
           </div>
-          <div>
+          <div data-aos="fade-down-left">
             <h3 className="text-4xl md:text-6xl text-center md:text-left ">
               Today special <br /> offer !!
             </h3>

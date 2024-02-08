@@ -16,7 +16,7 @@ import SectionTitle from "../../Components/SectionTitle/SectionTitle";
 
 const EspecialFood = () => {
   return (
-    <section className="container my-24 ">
+    <section data-aos="fade-left" className="container my-24 ">
       <div className="flex justify-center text-center my-10">
         <SectionTitle subHeading={"Choose Food"} Heading={"Favourite Food"} />
       </div>

@@ -21,7 +21,7 @@ const SignUp = () => {
         profileUpdate(name)
           .then((result) => {
             const saveUser = { name: name, email: email };
-            fetch("https://byte-cafe.onrender.com/users", {
+            fetch("http://localhost:5000/users", {
               method: "POST",
               headers: {
                 "content-type": "application/json",
@@ -56,7 +56,10 @@ const SignUp = () => {
     }
   };
   return (
-    <section className=" flex flex-col items-center justify-center py-10 bg-slate-700">
+    <section
+      data-aos="fade-up"
+      className=" flex flex-col items-center justify-center py-16 md:py-32 bg-slate-700"
+    >
       <div className="container w-full md:w-[450px] bg-white p-8 rounded-lg shadow-2xl">
         <h2 className="text-3xl text-slate-800 font-bold text-center mb-3">
           Sign Up

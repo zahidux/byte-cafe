@@ -13,7 +13,7 @@ const Banner = () => {
         <div className="flex flex-row items-center">
           <img src={banner1} />
           <div
-            data-aos="fade-down-left"
+            data-aos="zoom-in"
             className=" absolute text-white  text-left mt-10 mx-20 md:mx-36"
           >
             <p className="font-semibold text- md:text-xl ">
