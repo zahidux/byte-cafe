@@ -43,7 +43,7 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/chef/${params.id}`),
+          fetch(`https://byte-cafe.onrender.com/chef/${params.id}`),
       },
       {
         path: "menu",
@@ -80,7 +80,7 @@ const router = createBrowserRouter([
         path: "/update/:id",
         element: <UpdateItem />,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/items/${params.id}`),
+          fetch(`https://byte-cafe.onrender.com/items/${params.id}`),
       },
       {
         path: "*",

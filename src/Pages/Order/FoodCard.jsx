@@ -13,7 +13,7 @@ const FoodCard = ({ item }) => {
     if (user && user.email) {
       const cartItem = { menuItemId: _id, name, price, email: user.email };
 
-      fetch("http://localhost:5000/carts", {
+      fetch("https://byte-cafe.onrender.com/carts", {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify(cartItem),

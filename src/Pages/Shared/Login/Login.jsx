@@ -45,7 +45,7 @@ const Login = () => {
           name: loggedUser.displayName,
           email: loggedUser.email,
         };
-        fetch("http://localhost:5000/users", {
+        fetch("https://byte-cafe.onrender.com/users", {
           method: "POST",
           headers: {
             "content-type": "application/json",

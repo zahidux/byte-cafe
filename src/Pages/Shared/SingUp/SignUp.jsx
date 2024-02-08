@@ -21,7 +21,7 @@ const SignUp = () => {
         profileUpdate(name)
           .then((result) => {
             const saveUser = { name: name, email: email };
-            fetch("http://localhost:5000/users", {
+            fetch("https://byte-cafe.onrender.com/users", {
               method: "POST",
               headers: {
                 "content-type": "application/json",
