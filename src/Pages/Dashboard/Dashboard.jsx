@@ -30,22 +30,64 @@ const Dashboard = () => {
                 Admin
               </h2>
 
-              <div className="flex gap-4 items-center font-bold my-7">
-                <span
-                  className={`text-2xl cursor-pointer duration-500 ${
-                    open && "rotate-[180deg]"
-                  }`}
-                >
-                  <HiTemplate />
-                </span>
-                <Link
-                  to={"/dashboard/users"}
-                  className={`text-lg origin-left duration-500 ${
-                    !open && "scale-0"
-                  }`}
-                >
-                  Users
-                </Link>
+              <div className=" grid gap-4 items-center font-bold my-7">
+                <div className="flex gap-2">
+                  <div className="flex">
+                    <span
+                      className={`text-2xl cursor-pointer duration-500 ${
+                        open && "rotate-[180deg]"
+                      }`}
+                    >
+                      <HiTemplate />
+                    </span>
+                  </div>
+                  <Link
+                    to={"/dashboard/addItems"}
+                    className={`text-lg origin-left duration-500 ${
+                      !open && "scale-0"
+                    }`}
+                  >
+                    Add Items
+                  </Link>
+                </div>
+                <div className="flex gap-2">
+                  <div className="flex">
+                    <span
+                      className={`text-2xl cursor-pointer duration-500 ${
+                        open && "rotate-[180deg]"
+                      }`}
+                    >
+                      <HiTemplate />
+                    </span>
+                  </div>
+                  <Link
+                    to={"/dashboard/newitems"}
+                    className={`text-lg origin-left duration-500 ${
+                      !open && "scale-0"
+                    }`}
+                  >
+                    New Items
+                  </Link>
+                </div>
+                <div className="flex gap-2">
+                  <div className="flex">
+                    <span
+                      className={`text-2xl cursor-pointer duration-500 ${
+                        open && "rotate-[180deg]"
+                      }`}
+                    >
+                      <HiTemplate />
+                    </span>
+                  </div>
+                  <Link
+                    to={"/dashboard/users"}
+                    className={`text-lg origin-left duration-500 ${
+                      !open && "scale-0"
+                    }`}
+                  >
+                    Users
+                  </Link>
+                </div>
               </div>
               <div className="flex gap-4 items-center font-bold border-t-2 ">
                 <span

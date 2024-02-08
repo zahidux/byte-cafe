@@ -71,7 +71,7 @@ const AuthProvider = ({ children }) => {
       //get and set token
       if (currentUser) {
         axios
-          .post("http://localhost:5000/jwt", {
+          .post("https://byte-cafe.onrender.com/jwt", {
             email: currentUser.email,
           })
           .then((data) => {

@@ -24,7 +24,7 @@ const Categories = () => {
   }
 
   useEffect(() => {
-    fetch("http://localhost:5000/categories")
+    fetch("https://byte-cafe.onrender.com/categories")
       .then((res) => res.json())
       .then((data) => setCategories(data))
       .catch((error) => console.log(error));

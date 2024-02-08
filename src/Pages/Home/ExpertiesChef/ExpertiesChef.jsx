@@ -5,7 +5,7 @@ import Chef from "./Chef";
 const ExpertChef = () => {
   const [chefs, setChefs] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/chef")
+    fetch("https://byte-cafe.onrender.com/chef")
       .then((res) => res.json())
       .then((data) => setChefs(data));
   }, []);
